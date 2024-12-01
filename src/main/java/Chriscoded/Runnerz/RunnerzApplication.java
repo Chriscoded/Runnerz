@@ -3,6 +3,7 @@ package Chriscoded.Runnerz;
 
 import Chriscoded.Runnerz.run.Location;
 import Chriscoded.Runnerz.run.Run;
+import Chriscoded.Runnerz.run.RunRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -22,15 +23,17 @@ public class RunnerzApplication {
 		//log.info("Application has started successfully");
 	}
 
-	//Command line runner runs after the application have started
-	@Bean
-	CommandLineRunner runner (){
-		return args -> {
-			log.info("Application started");
-			Run run = new Run(1,"First Run", LocalDateTime.now(), LocalDateTime.now().plus(1, ChronoUnit.HOURS), 3, Location.OUTDOOR );
-			log.info("Run " + run);
-		};
-	}
+//	//Command line runner runs after the application have started
+//	@Bean
+//	CommandLineRunner runner (RunRepository runRepository){
+//		return args -> {
+//			log.info("Application started");
+//			Run run = new Run(1,"First Run", LocalDateTime.now(), LocalDateTime.now().plus(1, ChronoUnit.HOURS), 3, Location.OUTDOOR );
+//			log.info("Run " + run);
+//
+//			runRepository.create(run);
+//		};
+//	}
 
 
 }
