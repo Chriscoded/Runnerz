@@ -2,6 +2,7 @@ package Chriscoded.Runnerz;
 
 
 import Chriscoded.Runnerz.user.User;
+import Chriscoded.Runnerz.user.UserHttpClient;
 import Chriscoded.Runnerz.user.UserRestClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,6 +10,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestClient;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.service.invoker.HttpExchangeAdapter;
+import org.springframework.web.service.invoker.HttpServiceProxyFactory;
 
 import java.util.List;
 
@@ -21,6 +26,13 @@ public class RunnerzApplication {
 		SpringApplication.run(RunnerzApplication.class, args);
 		//log.info("Application has started successfully");
 	}
+
+//	@Bean
+//	UserHttpClient userHttpClient(){
+//		RestTemplate restClient= (RestTemplate) RestClient.create("https://jsonplaceholder.typicode.com/");
+//		HttpServiceProxyFactory factory = HttpServiceProxyFactory.builderFor((HttpExchangeAdapter) RestClient.create(restClient)).build();
+//		return factory.createClient(UserHttpClient.class);
+//	}
 
 //	//Command line runner runs after the application have started
 	@Bean
