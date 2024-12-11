@@ -45,7 +45,8 @@ class RunControllerTest {
                 LocalDateTime.now(),
                 LocalDateTime.now().plus(30, ChronoUnit.MINUTES),
                 3,
-                Location.INDOOR));
+                Location.INDOOR,
+                2));
     }
 
     @Test
@@ -76,7 +77,7 @@ class RunControllerTest {
 
     @Test
     void shouldCreateNewRun() throws Exception {
-        var run = new Run(null,"test", LocalDateTime.now(),LocalDateTime.now(),1, Location.INDOOR);
+        var run = new Run(null,"test", LocalDateTime.now(),LocalDateTime.now(),1, Location.INDOOR, 1);
         mvc.perform(post("/api/runs")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(run))
@@ -86,7 +87,7 @@ class RunControllerTest {
 
     @Test
     void shouldUpdateRun() throws Exception {
-        var run = new Run(null,"test", LocalDateTime.now(),LocalDateTime.now(),1, Location.INDOOR);
+        var run = new Run(null,"test", LocalDateTime.now(),LocalDateTime.now(),1, Location.INDOOR, 2);
         mvc.perform(put("/api/runs/1")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(run))
